@@ -1,3 +1,7 @@
-FROM ubuntu:14.04
-CMD sudo apt-get install update && sudo apt-get python python-pip
-CMD python -m pip install websocket-client
+FROM ubuntu:latest
+RUN sudo apt-get update&&sudo apt-get install python python-pip git -y
+RUN python -m pip install websocket-client
+CMD cd ~\twitch-market
+CMD git clone https://github.com/VSquidDevV/twitch-market
+CMD cd twitch-market
+CMD python twitch-market.py
