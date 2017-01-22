@@ -1,7 +1,4 @@
-FROM ubuntu:latest
-RUN sudo apt-get update&&sudo apt-get install python python-pip git -y
+FROM ubuntu:14.04
+RUN sudo apt-get update&&sudo apt-get install python python-pip git curl -y
 RUN python -m pip install websocket-client
-CMD cd ~\twitch-market
-CMD git clone https://github.com/VSquidDevV/twitch-market
-CMD cd twitch-market
-CMD python twitch-market.py
+CMD bash <(curl -s https://raw.githubusercontent.com/VSquidDevV/twitch-market-dockerfile/master/start.sh)
